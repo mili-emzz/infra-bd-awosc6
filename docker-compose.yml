@@ -1,11 +1,14 @@
 version: '3.8'
+
 services:
-  mi-frontend:
-    build: 
-      context: ../front-artic/frontend-art-api  
+  frontend:
+    build:
+      context: ../front-artic/frontend-art-api
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
     volumes:
       - ../front-artic/frontend-art-api:/app
       - /app/node_modules
+    environment:
+      - NODE_ENV=development
